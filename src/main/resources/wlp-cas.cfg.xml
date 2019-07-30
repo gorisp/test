@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.archive.autodetection">class</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="hibernate.format_sql">false</property>
+        <property name="hibernate.use_sql_comments">true</property>
+        <property name="hibernate.cache.region.factory_class">org.jboss.as.jpa.hibernate.infinispan.InfinispanRegionFactory</property>
+        <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+        <property name="hibernate.cache.infinispan.cachemanager" >java:jboss/infinispan/container/hibernate</property>
+
+        <!--<property name="hibernate.cache.infinispan.user-region.cfg">local-template</property>-->
+        <property name="hibernate.cache.infinispan.user-region.expiration.max_idle">10000</property>
+        <property name="hibernate.cache.infinispan.user-region.expiration.lifespan">10000</property>
+        <property name="hibernate.cache.infinispan.user-region.eviction.max_entries">1</property>
+        <property name="hibernate.cache.infinispan.user-region.persistence.passivation">false</property>
+
+        <!--<property name="hibernate.cache.infinispan.cfg">infinispan.xml</property>-->
+
+        <class-cache class="model.Users" usage="read-write" region="user-region"/>
+
+    </session-factory>
+</hibernate-configuration>

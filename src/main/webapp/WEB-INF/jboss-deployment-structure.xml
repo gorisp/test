@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+	<deployment>
+		<dependencies>
+			<module name="org.infinispan.commons" slot="main" />
+			<module name="org.jboss.as.clustering.infinispan" slot="main" />
+			<module name="org.jboss.marshalling" slot="main" />
+			<module name="org.wildfly.clustering.infinispan.spi" slot="main" />
+		</dependencies>
+	</deployment>
+</jboss-deployment-structure>

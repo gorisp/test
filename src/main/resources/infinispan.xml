@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<infinispan>
+
+        <default statistics-enabled="true">
+            <expiration max-idle="-1" lifespan="-1"/>
+            <persistence passivation="false"/>
+            <memory>
+                <object size="10000"/>
+            </memory>
+        </default>
+
+        <local-cache name="default-query-results-region" statistics-enabled="true">
+            <expiration max-idle="-1" lifespan="-1"/>
+            <persistence passivation="false"/>
+            <memory>
+                <object size="500"/>
+            </memory>
+        </local-cache>
+
+        <local-cache name="default-update-timestamps-region" statistics-enabled="true">
+            <expiration max-idle="-1" lifespan="-1"/>
+            <persistence passivation="false"/>
+            <memory>
+                <object size="500"/>
+            </memory>
+        </local-cache>
+
+        <local-cache name="user-region" statistics-enabled="true">
+            <expiration max-idle="10" lifespan="10"/>
+            <persistence passivation="false"/>
+            <memory>
+                <object size="1"/>
+            </memory>
+        </local-cache>
+</infinispan>
